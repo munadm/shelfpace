@@ -1,0 +1,16 @@
+# build output
+/shelfpace
+/bin/
+
+# my reading data stays local (fixtures live in testdata/)
+/data/
+*.db
+*.db-*
+*.sqlite
+*.ics
+*.csv
+!testdata/**
+
+# profiling and coverage
+*.prof
+coverage.out
