@@ -28,3 +28,4 @@ Blocks run every other Wednesday.
 | Date | Block | Status | Evidence | What I learned |
 |---|---|---|---|---|
 | 2026-10-24 | GO-0 | PASS | [repo created](https://github.com/munadm/shelfpace) | — |
+| 2026-11-21 | GO-1 | PASS | `shelfpace pace` CLI (commit link after push) | learned basic variable initialization, how errors work, how there's only for loops and basic if statements, how falsy , truthy things are not accepted, how panic is not an error and should never happen, how to intialize using var, const, := if inside a function, ExitOnError returns before the parse command can run |
