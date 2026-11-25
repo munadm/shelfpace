@@ -28,4 +28,5 @@ Blocks run every other Wednesday.
 | Date | Block | Status | Evidence | What I learned |
 |---|---|---|---|---|
 | 2026-10-24 | GO-0 | PASS | [repo created](https://github.com/munadm/shelfpace) | — |
-| 2026-11-21 | GO-1 | PASS | `shelfpace pace` CLI (commit link after push) | learned basic variable initialization, how errors work, how there's only for loops and basic if statements, how falsy , truthy things are not accepted, how panic is not an error and should never happen, how to intialize using var, const, := if inside a function, ExitOnError returns before the parse command can run |
+| 2026-11-21 | GO-1 | PASS | [PR #1](https://github.com/munadm/shelfpace/pull/1) | learned basic variable initialization, how errors work, how there's only for loops and basic if statements, how falsy , truthy things are not accepted, how panic is not an error and should never happen, how to intialize using var, const, := if inside a function, ExitOnError returns before the parse command can run |
+| 2026-11-25 | GO-2 | PASS | [PR #2](https://github.com/munadm/shelfpace/pull/2) | learned table-driven tests with typed rows and `t.Run`, injecting `today` and an `io.Writer` so output is testable, and golden files as a new way of testing: when a golden test fails, decide whether it's a real regression or just a missed `-update` (similar to HAR recordings) |
