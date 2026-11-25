@@ -64,13 +64,8 @@ func main() {
 		os.Exit(1)
 	}
 	// print the plan
-	total := 0
-	for i, pages := range perDay {
-		day := today.AddDate(0, 0, i)
-		fmt.Printf("%s: %d pages\n", day.Format("Mon Jan 2"), pages)
-		total += pages
+	if err := plan.WritePlan(perDay, today, os.Stdout); err != nil {
+		fmt.Fprintln(os.Stderr, "Error:", err)
+		os.Exit(1)
 	}
-
-	fmt.Printf("Total pages: %d\n", total)
-
 }
