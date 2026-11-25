@@ -1,0 +1,14 @@
+name: CI                      # label shown in the GitHub Actions tab
+
+on: [push, pull_request]      # when it runs
+
+jobs:
+  test:                       # job id (any name you like)
+    runs-on: ubuntu-latest    # a fresh Linux machine for every run
+    steps:
+      - uses: actions/checkout@v6      # clone your repo onto the machine
+      - uses: actions/setup-go@v5      # install Go...
+        with:
+          go-version-file: go.mod      # ...the version in go.mod
+      - run: go vet ./...              # vet
+      - run: go test -race ./...       # tests with the race detector
