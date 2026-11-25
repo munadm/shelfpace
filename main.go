@@ -5,26 +5,10 @@ import (
 	"fmt"
 	"os"
 	"time"
+
+	"github.com/munadm/shelfpace/internal/plan"
 )
 
-func split(pages, days int) ([]int, error) {
-	if days <= 0 {
-		return nil, fmt.Errorf("days must be greater than 0, got %d", days)
-	}
-	if pages < 0 {
-		return nil, fmt.Errorf("pages must be non-negative, got %d", pages)
-	}
-	base := pages / days
-	rem := pages % days
-	result := make([]int, days) // starts an slice of length days with all values initialized to 0
-	for i := 0; i < days; i++ {
-		result[i] = base
-		if i < rem {
-			result[i]++
-		}
-	}
-	return result, nil
-}
 func main() {
 	// define usage if args are not correct
 	if len(os.Args) < 2 || os.Args[1] != "pace" {
@@ -74,14 +58,14 @@ func main() {
 		os.Exit(1)
 	}
 	// split the pages into a plan based on the number of days
-	plan, err := split(*pacePages-*paceAt, days)
+	perDay, err := plan.Split(*pacePages-*paceAt, days)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "Error:", err)
 		os.Exit(1)
 	}
 	// print the plan
 	total := 0
-	for i, pages := range plan {
+	for i, pages := range perDay {
 		day := today.AddDate(0, 0, i)
 		fmt.Printf("%s: %d pages\n", day.Format("Mon Jan 2"), pages)
 		total += pages
